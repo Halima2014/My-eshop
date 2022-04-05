@@ -5,6 +5,9 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -19,16 +22,62 @@ class RegisterType extends AbstractType
         $builder
             ->add('email', EmailType::class, [
                 'label' => 'Email',
+                'constraints'=> [
+                    new NotBlank([
+                        'message'=> 'Ce champ ne peut etre vide',
+                    ]),
+                    new Length([
+                        'max'=> 180,
+                        'maxMessage'=> 'Votre email  ne peut dépasser {{ limit }} caractères ',
+                    ]),
+                    new Email([
+                        'message' => 'Votre email n\'est pas au bon format:ex. mail@example.com'
+                    ]),
+                ],
             ])
            
             ->add('password', PasswordType::class, [
                 'label' => 'Mot de passe',
+                'constraints'=> [
+                    new NotBlank([
+                        'message'=> 'Ce champ ne peut etre vide',
+                    ]),
+                    new Length([
+                        'max'=> 255,
+                        'min'=> 4,
+                        'maxMessage'=> 'Votre mot de passe ne peut dépasser {{ limit }} caractères ',
+                        'minMessage'=> 'Votre mot de passe doit avoir au minimum {{ limit }} caractères ',
+                    ]),
+                ],
             ])
             ->add('firstname', TextType::class, [
                 'label' => 'Prénom',
+                'constraints'=> [
+                    new NotBlank([
+                        'message' => 'Ce champ ne peut etre vide',
+                    ]),
+                    new Length([
+                        'max' =>50,
+                        'min' =>2,
+                        'maxMessage'=> 'Votre prénom ne peut dépasser {{ limit }} caractères',
+                        'minMessage'=> 'Votre prénom  doit avoir au minimum  {{ limit }} caractères ',              
+                    ]),
+                ]
+
             ])
             ->add('lastname', TextType::class, [
-                'label' => 'Nom'
+                'label' => 'Nom',
+                'constraints'=> [
+                    new NotBlank([
+                        'message' => 'Ce champ ne peut etre vide',
+                    ]),
+                    new Length([
+                        'max' =>50,
+                        'min' =>2,
+                        'maxMessage'=> 'Votre nom ne peut dépasser {{ limit }} caractères',
+                        'minMessage'=> 'Votre nom  doit avoir au minimum  {{ limit }} caractères ',              
+                    ]),
+                ]
             ])
             ->add('gender', ChoiceType::class, [
                 'label'=> 'Civilité',
@@ -38,14 +87,23 @@ class RegisterType extends AbstractType
                     'Femme' => 'f'
                 ],
                 'attr' => [
-                    'class' =>'',
+                    'class' => 'd-flex gap-3',
                 ],
+                'constraints'=> [
+                    new NotBlank([
+                        'message' => 'Veuillez choisir un genre',
+                    ])
+                ]    
+                
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Valider',
                 // Cette option permet de désactiver le validator HTML (front), comme on a fait en twig (voir ci-dessous)
                      # => form_start(form, {'attr': {'novalidate': novalidate}})
-                'Validate' => false,
+                'validate' => false,
+                'attr'=> [
+                    'class'=> 'd-block mx-auto col-2 btn btn-primary'
+                ]
             ])
             
         ;

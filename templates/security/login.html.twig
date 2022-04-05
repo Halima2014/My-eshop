@@ -16,6 +16,8 @@
         </div>
     {% endif %}
 
+    {%  include 'include/_flashes.html.twig' %}
+
     <h1 class="h3 mb-3 font-weight-normal text-center">Connectez-vous</h1>
     
     <div class="row">
@@ -25,7 +27,8 @@
             <label for="inputPassword">Mot de passe</label>
             <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
-            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <input type="hidden" name="_csrf_token"
+             value="{{ csrf_token('authenticate') }}">
 
         </div>
     
