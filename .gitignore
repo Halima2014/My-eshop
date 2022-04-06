@@ -8,7 +8,7 @@
 /var/
 /vendor/
 /.vscode/
-
+/public/uploads/
 ###< symfony/framework-bundle ###
 
 ###> symfony/webpack-encore-bundle ###
