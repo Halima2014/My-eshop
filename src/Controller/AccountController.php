@@ -2,21 +2,27 @@
 
 namespace App\Controller;
 
+use App\Repository\CommandeRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+/**
+ * @Route("/mon-compte")
+ */
 class AccountController extends AbstractController
 { 
     /** 
-    *@Route("/mon-compte", name="show_account", methods={"GET"})
+    *@Route("/", name="show_account", methods={"GET"})
     *@return Response
     */
-    public function showAccount(CommandeRespository $commandeRespository): Response
+    public function showAccount(CommandeRepository $commandeRepository): Response
     {
-        $commands = $commandeRespository->findBy(['user' => $this->getUser()]);
+        $commands = $commandeRepository->findBy(['user' => $this->getUser()]);
 
-        return $this->render('account/show_account.html.twig');
-        
+        return $this->render('account/show_account.html.twig',[
+            'commands' => $commands
+        ]);
+            
     }
 }

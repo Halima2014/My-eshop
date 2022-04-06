@@ -11,7 +11,7 @@
           <a class="nav-link active" aria-current="page" href="{{ path('default_home')}}">Accueil</a>
         </li>
 
-          {% if not app.user %}
+        {% if not app.user %}
 
                   <li class="nav-item">
                     <a class="nav-link" href="{{  path('security_register') 
@@ -21,35 +21,33 @@
                     <a class="nav-link" href="{{  path('app_login') }}">Connexion</a>
                   </li>
 
-          {% else %}
+        {% else %}
 
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{  path('app_logout') }}">Déconnexion</a>
-                  </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{  path('app_logout') }}">Déconnexion</a>
+            </li>
 
-          
-   
-   
-        <li class="nav-item">
-          <a class="nav-link" href="{{ path ('show_account') }}">Mon compte</a>
-        </li>
-        {% if is_granted("ROLE_ADMIN") %}
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Espace Admin
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Dashboard</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Gestion Produits</a></li>
-            <li><a class="dropdown-item" href="#">Gestion Commandes</a></li>
-            <li><a class="dropdown-item" href="#">Gestion Membres</a></li>
-          </ul>
-        </li>
+        
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path ('show_account') }}">Mon compte</a>
+            </li>
+            {% if is_granted("ROLE_ADMIN") %}
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Espace Admin
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{{ path('show_dashboard') }}">Dashboard</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{{ path('show_produit')}}">Gestion Produits</a></li>
+                <li><a class="dropdown-item" href="#">Gestion Commandes</a></li>
+                <li><a class="dropdown-item" href="#">Gestion Membres</a></li>
+            </ul>
+            </li>
 
-         {% endif %}  
+            {% endif %}  
 
-        {% endif %}
+    {% endif %}
             {# <li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li> #}
