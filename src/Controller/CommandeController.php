@@ -44,7 +44,7 @@ class CommandeController extends AbstractController
     }
 
     /**
-     * @Route("/voir-une-commande-annulees/", name="show_canceled_commandes", methods={"GET"})
+     * @Route("/voir-une-commande-annulees/", name="hard_delete_commande", methods={"GET"})
      */
     public function showCanceledCommandes(CommandeRepository $commandeRepository): Response
     {

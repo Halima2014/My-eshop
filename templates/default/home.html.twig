@@ -10,11 +10,12 @@
 
          <div class="col-3 mx-2">
             <div class="card" style="width: 18rem;">
-                <img src="#" class="card-img-top" alt="une photo" style="object-fit: cover;">
+                <img src="{{ asset('uploads/' ~ produit.photo)}}" class="card-img-top" alt="une photo" style="object-fit: contain;"width="150" height="220">
                     <div class="card-body">
-                        <h5 class="card-title">Titre</h5>
-                        <p class="card-text">Description</p>
-                        <a href="#" class="btn btn-primary mx-auto text-center">Ajouter au panier</a>
+                        <h5 class="card-title">{{ produit.title }}</h5>
+                        <p class="card-text">{{ produit.description | length > 30 ? produit.description | slice(0,30) ~ '...' : produit.description }}</p>
+                        <a href="#" class="btn btn-primary mx-auto text-center"><i class="fa-solid fa-cart-plus"></i>
+                             Ajouter au panier</a>
                     </div>
             </div>
          </div>

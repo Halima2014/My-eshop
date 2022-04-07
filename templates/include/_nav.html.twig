@@ -48,10 +48,16 @@
             {% endif %}  
 
     {% endif %}
-            {# <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li> #}
-          </ul>
+    </ul>
+            {# <li class="nav-item me-0">
+              <a class="nav-link "> <i class="fa-solid fa-cart-arrow-down"></i>
+                Panier</a> #}
+           <div class="me-5">
+            <a href ="{{ path('show_panier') }}" class="btn btn-warning"> <i class="fa-solid fa-cart-arrow-down"></i>
+                Panier</a>
+           </div>
+              
+          
           {# <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
