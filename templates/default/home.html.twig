@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center ">Bienvenue sur la boutique  en ligne</h1>
+    <di class="row">
+        {% for produit in produits%}
+
+         <div class="col-3 mx-2">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ asset('uploads/' ~ produit.photo)}}" class="card-img-top" alt="une photo" style="object-fit: contain;"width="150" height="220">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ produit.title }}</h5>
+                        <p class="card-text">{{ produit.description | length > 30 ? produit.description | slice(0,30) ~ '...' : produit.description }}</p>
+                        <a href="#" class="btn btn-primary mx-auto text-center"><i class="fa-solid fa-cart-plus"></i>
+                             Ajouter au panier</a>
+                    </div>
+            </div>
+         </div>
+        {% else %}
+            <h3 class="text-center text-primary">La boutique est vide</h3>
+        {% endfor %}
+
+    </div>
+   
+
+
+{% endblock %}
