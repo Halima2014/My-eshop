@@ -1,0 +1,13 @@
+*, ::before, ::after{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+
+}
+
+body, nav {
+    background-color: rgb(160, 184, 214)!important;
+}
+
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmNzcyIsIm1hcHBpbmdzIjoiQUFBQTtJQUNJLFFBQVE7SUFDUixTQUFTO0lBQ1Qsc0JBQXNCOztBQUUxQjs7QUFFQTtJQUNJLDhDQUE4QztBQUNsRCIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL2Fzc2V0cy9zdHlsZXMvYXBwLmNzcyJdLCJzb3VyY2VzQ29udGVudCI6WyIqLCA6OmJlZm9yZSwgOjphZnRlcntcbiAgICBtYXJnaW46MDtcbiAgICBwYWRkaW5nOjA7XG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcblxufVxuXG5ib2R5LCBuYXYge1xuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigxNjAsIDE4NCwgMjE0KSFpbXBvcnRhbnQ7XG59XG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=*/
